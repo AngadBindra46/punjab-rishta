@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: punjab-rishta
+    runtime: node
+    plan: free
+    buildCommand: npm install && node server/seed.js && node server/seed-more.js && node server/seed-females.js
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
