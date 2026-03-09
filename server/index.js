@@ -3,21 +3,52 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const cookieParser = require("cookie-parser");
 const path = require("path");
 const db = require("./db");
+const { requireAuth, mountAuthRoutes, getSession, COOKIE_SECRET } = require("./auth");
 
 const app = express();
 const PORT = process.env.PORT || 3100;
+const root = path.join(__dirname, "..");
 
 app.use(helmet({ contentSecurityPolicy: false }));
-app.use(cors({ origin: process.env.CORS_ORIGIN || "*" }));
+app.use(cors({ origin: process.env.CORS_ORIGIN || true, credentials: true }));
+app.use(cookieParser(process.env.COOKIE_SECRET || COOKIE_SECRET));
 app.use(express.json({ limit: "2mb" }));
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 200 });
 app.use("/api/", limiter);
 
-app.use(express.static(path.join(__dirname, "..")));
+// Auth routes (unprotected)
+mountAuthRoutes(app);
+
+// Serve login page without auth
+app.get("/login.html", (req, res) => res.sendFile(path.join(root, "login.html")));
+
+// Gate all HTML pages behind auth
+app.get("/", (req, res) => {
+  if (!getSession(req)) return res.redirect("/login.html");
+  res.sendFile(path.join(root, "index.html"));
+});
+app.get("/register.html", (req, res) => {
+  if (!getSession(req)) return res.redirect("/login.html");
+  res.sendFile(path.join(root, "register.html"));
+});
+app.get("/outreach.html", (req, res) => {
+  if (!getSession(req)) return res.redirect("/login.html");
+  res.sendFile(path.join(root, "outreach.html"));
+});
+
+app.use(express.static(root));
+
+// ── Protected API routes ──
+app.use("/api/profiles", requireAuth);
+app.use("/api/options", requireAuth);
+app.use("/api/stats", requireAuth);
+app.use("/api/export", requireAuth);
+app.use("/api/contact-request", requireAuth);
 
 // ── Profiles CRUD ──
 app.get("/api/profiles", (req, res) => {

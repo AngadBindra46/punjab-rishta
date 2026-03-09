@@ -23,6 +23,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); c
   padding: 0.4rem 0.8rem; border-radius: var(--r); transition: all 0.2s;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg3); }
+.nav-user{font-size:0.72rem;color:var(--green);font-weight:600;padding:0.4rem 0.5rem}
+.nav-logout{color:var(--red) !important;font-size:0.72rem !important}
 
 /* ── Register Page ── */
 .register-page { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem; }

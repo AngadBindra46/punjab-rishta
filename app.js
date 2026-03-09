@@ -2,7 +2,27 @@ const $ = id => document.getElementById(id);
 
 let profiles = [];
 
+function showUser() {
+  try {
+    const u = JSON.parse(localStorage.getItem("pr_user"));
+    if (u && $("navUser")) $("navUser").textContent = u.name || u.email;
+  } catch {}
+}
+
+async function logout() {
+  await fetch("/api/auth/logout", { method: "POST" });
+  localStorage.removeItem("pr_user");
+  window.location.href = "/login.html";
+}
+
+async function authFetch(url, opts) {
+  const res = await fetch(url, opts);
+  if (res.status === 401) { window.location.href = "/login.html"; return null; }
+  return res;
+}
+
 async function init() {
+  showUser();
   await fetchProfiles();
   await populateFilters();
   renderStats();
@@ -21,7 +41,8 @@ async function init() {
 
 async function fetchProfiles() {
   try {
-    const res = await fetch("/api/profiles");
+    const res = await authFetch("/api/profiles");
+    if (!res) return;
     profiles = await res.json();
   } catch { profiles = []; }
 }

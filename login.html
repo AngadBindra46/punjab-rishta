@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — Punjab Rishta</title>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0f1117;--bg2:#1a1d27;--bg3:#242836;--border:#333850;--text:#e8eaf0;--text2:#9ba3b8;--accent:#6c5ce7;--accent2:#a29bfe}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .login-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;max-width:420px;width:90%;text-align:center}
+    .login-brand{font-size:2rem;margin-bottom:0.3rem}
+    .login-title{font-size:1.4rem;font-weight:800;color:var(--accent2);margin-bottom:0.3rem}
+    .login-sub{font-size:0.82rem;color:var(--text2);line-height:1.5;margin-bottom:1.5rem}
+    .divider{border:none;border-top:1px solid var(--border);margin:1.5rem 0}
+    .g-btn-wrap{display:flex;justify-content:center;margin-bottom:1rem}
+    .login-footer{font-size:0.65rem;color:#636b83;line-height:1.5;margin-top:1rem}
+    .login-error{background:rgba(214,48,49,0.1);color:#d63031;padding:0.5rem;border-radius:8px;font-size:0.78rem;font-weight:600;margin-bottom:1rem;display:none}
+    .login-spinner{display:none;margin:1rem auto}
+    .login-spinner.show{display:block}
+    .spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp 0.7s linear infinite;margin:0 auto}
+    @keyframes sp{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="login-brand">💍</div>
+    <h1 class="login-title">Punjab Rishta</h1>
+    <p class="login-sub">Consent-based matrimonial platform for Punjab families.<br>Sign in to browse profiles, register, and connect.</p>
+
+    <div id="loginError" class="login-error"></div>
+    <div id="loginSpinner" class="login-spinner"><div class="spin"></div></div>
+
+    <div class="g-btn-wrap">
+      <div id="g_id_onload"
+        data-client_id="806692116297-tvo0mmiire2auq4nsrbubmo1uuh1gekh.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="filled_black"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left"
+        data-width="300">
+      </div>
+    </div>
+
+    <hr class="divider">
+    <div class="login-footer">Your privacy is our priority. We only use your Google email to identify you.<br>No passwords stored. No data shared with third parties.</div>
+  </div>
+
+  <script>
+    async function handleCredentialResponse(response) {
+      const err = document.getElementById("loginError");
+      const spinner = document.getElementById("loginSpinner");
+      err.style.display = "none";
+      spinner.classList.add("show");
+
+      try {
+        const res = await fetch("/api/auth/google", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ credential: response.credential }),
+        });
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || "Login failed");
+        }
+        const user = await res.json();
+        localStorage.setItem("pr_user", JSON.stringify(user));
+        window.location.href = "/";
+      } catch (e) {
+        spinner.classList.remove("show");
+        err.textContent = e.message;
+        err.style.display = "block";
+      }
+    }
+
+    // If already logged in, redirect
+    fetch("/api/auth/me").then(r => { if (r.ok) window.location.href = "/"; }).catch(() => {});
+  </script>
+</body>
+</html>
