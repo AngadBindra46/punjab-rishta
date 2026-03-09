@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punjab Matrimonial — Find Your Match</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">💍 Punjab Rishta</a>
+    <div class="nav-links">
+      <a href="/" class="active">Browse Profiles</a>
+      <a href="/register.html">Register Free</a>
+      <a href="/outreach.html">Outreach</a>
+    </div>
+  </nav>
+
+  <div class="dashboard">
+    <div class="dash-header">
+      <h1>Browse Profiles</h1>
+      <a href="/api/export/csv?gender=female" class="btn-export">Export Female Profiles (CSV)</a>
+    </div>
+
+    <div class="stats-bar" id="statsBar"></div>
+
+    <div class="filters" id="filtersBar">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search by name, city, profession...">
+      <select id="fGender"><option value="">All Genders</option><option value="female">Female</option><option value="male">Male</option></select>
+      <select id="fCity"><option value="">All Cities</option></select>
+      <select id="fDistrict"><option value="">All Districts</option></select>
+      <select id="fCommunity"><option value="">All Communities</option></select>
+      <select id="fEducation"><option value="">All Education</option></select>
+      <select id="fAgeMin"><option value="">Min Age</option></select>
+      <select id="fAgeMax"><option value="">Max Age</option></select>
+    </div>
+
+    <div class="count-badge" id="countBadge"></div>
+    <div class="profiles-grid" id="profilesGrid"></div>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-detail" id="modalDetail"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

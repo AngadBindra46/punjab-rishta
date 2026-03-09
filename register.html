@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punjab Rishta — Free Matrimonial Registration | Find Your Perfect Match</title>
+  <meta name="description" content="Free matrimonial registration for families in Punjab. Trusted platform connecting Sikh, Hindu & other families for marriage. 100% consent-based, privacy-first.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">💍 Punjab Rishta</a>
+    <div class="nav-links">
+      <a href="/">Browse Profiles</a>
+      <a href="/register.html" class="active">Register Free</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">✅ 100% Free · No Hidden Charges</div>
+      <h1>Find Your Perfect <span class="highlight">Life Partner</span></h1>
+      <p class="hero-sub">Punjab's trusted consent-based matrimonial platform. Join families from Patiala, Ludhiana, Amritsar, Jalandhar &amp; all 23 districts.</p>
+      <div class="hero-stats">
+        <div class="hs"><strong id="heroCount">80+</strong><span>Registered Profiles</span></div>
+        <div class="hs"><strong>23</strong><span>Punjab Districts</span></div>
+        <div class="hs"><strong>100%</strong><span>Consent-Based</span></div>
+        <div class="hs"><strong>🔒</strong><span>Privacy Protected</span></div>
+      </div>
+      <a href="#regForm" class="hero-cta">Register Free Now ↓</a>
+    </div>
+  </section>
+
+  <!-- Trust Signals -->
+  <section class="trust">
+    <div class="trust-inner">
+      <div class="trust-card">
+        <div class="tc-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>Your contact details are hidden by default. Share only with people you choose.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tc-icon">✅</div>
+        <h3>Consent Based</h3>
+        <p>Every profile is voluntarily registered. No data scraping, ever.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tc-icon">🗑️</div>
+        <h3>Delete Anytime</h3>
+        <p>Found your match? Delete your profile permanently with one click.</p>
+      </div>
+      <div class="trust-card">
+        <div class="tc-icon">💰</div>
+        <h3>Completely Free</h3>
+        <p>No membership fees. No premium charges. Free for everyone, always.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Register</h3>
+        <p>Fill out the form below with your details. Takes just 5 minutes.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get Discovered</h3>
+        <p>Families browse profiles filtered by city, community, education &amp; more.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Connect</h3>
+        <p>Interested families reach out. You decide who sees your contact info.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <div class="register-page" id="regForm">
+    <div class="register-header">
+      <h1>Create Your Profile</h1>
+      <p>Join families across Punjab finding meaningful connections — takes just 5 minutes</p>
+    </div>
+
+    <form id="regFormEl" class="reg-form" autocomplete="off">
+      <fieldset class="form-section">
+        <legend>Personal Details</legend>
+        <div class="form-grid">
+          <div class="field"><label>Full Name *</label><input type="text" name="fullName" required placeholder="e.g. Harleen Kaur Sidhu"></div>
+          <div class="field"><label>Gender *</label>
+            <select name="gender" required><option value="">Select</option><option value="female">Female</option><option value="male">Male</option></select>
+          </div>
+          <div class="field"><label>Date of Birth *</label><input type="date" name="dob" required></div>
+          <div class="field"><label>Height (cm)</label><input type="number" name="heightCm" min="120" max="220" placeholder="e.g. 165"></div>
+          <div class="field"><label>Complexion</label>
+            <select name="complexion"><option value="">Select</option><option>Very Fair</option><option>Fair</option><option>Wheatish</option><option>Dusky</option></select>
+          </div>
+          <div class="field"><label>Marital Status *</label>
+            <select name="maritalStatus" required><option value="Never Married">Never Married</option><option value="Divorced">Divorced</option><option value="Widowed">Widowed</option></select>
+          </div>
+        </div>
+        <div class="field full"><label>About Yourself</label><textarea name="about" rows="3" placeholder="Write a brief introduction about yourself, your values, and what matters to you..."></textarea></div>
+        <div class="field full"><label>Hobbies &amp; Interests</label><input type="text" name="hobbies" placeholder="e.g. Reading, Cooking, Traveling, Music, Gurbani Path"></div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Location</legend>
+        <div class="form-grid">
+          <div class="field"><label>City / Town *</label><input type="text" name="city" required placeholder="e.g. Patiala, Ludhiana"></div>
+          <div class="field"><label>District *</label>
+            <select name="district" required>
+              <option value="">Select District</option>
+              <option>Amritsar</option><option>Barnala</option><option>Bathinda</option>
+              <option>Faridkot</option><option>Fatehgarh Sahib</option><option>Fazilka</option>
+              <option>Ferozepur</option><option>Gurdaspur</option><option>Hoshiarpur</option>
+              <option>Jalandhar</option><option>Kapurthala</option><option>Ludhiana</option>
+              <option>Malerkotla</option><option>Mansa</option><option>Moga</option>
+              <option>Mohali (SAS Nagar)</option><option>Muktsar</option><option>Nawanshahr</option>
+              <option>Pathankot</option><option>Patiala</option><option>Rupnagar</option>
+              <option>Sangrur</option><option>Tarn Taran</option>
+            </select>
+          </div>
+          <div class="field"><label>State</label><input type="text" name="state" value="Punjab" readonly></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Religion &amp; Community</legend>
+        <div class="form-grid">
+          <div class="field"><label>Religion</label>
+            <select name="religion"><option value="">Select</option><option>Sikh</option><option>Hindu</option><option>Muslim</option><option>Christian</option><option>Other</option></select>
+          </div>
+          <div class="field"><label>Community / Caste</label>
+            <select name="community">
+              <option value="">Select</option>
+              <option>Jat Sikh</option><option>Khatri</option><option>Arora</option><option>Ramgarhia</option>
+              <option>Saini</option><option>Rajput</option><option>Brahmin</option><option>Agarwal</option>
+              <option>Mahajan</option><option>Lubana</option><option>Ravidasia</option><option>Valmiki</option>
+              <option>Mazabi Sikh</option><option>Gujjar</option><option>Rai Sikh</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Sub-caste / Gotra</label><input type="text" name="subcaste" placeholder="e.g. Sidhu, Sandhu, Gill"></div>
+          <div class="field"><label>Mother Tongue</label>
+            <select name="motherTongue"><option value="Punjabi">Punjabi</option><option value="Hindi">Hindi</option><option value="Other">Other</option></select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Education &amp; Career</legend>
+        <div class="form-grid">
+          <div class="field"><label>Highest Education</label>
+            <select name="education">
+              <option value="">Select</option>
+              <option>10th Pass</option><option>12th Pass</option><option>Diploma</option>
+              <option>Graduate (BA/BSc/BCom)</option><option>Post Graduate (MA/MSc/MCom)</option>
+              <option>B.Tech / B.E.</option><option>M.Tech / M.E.</option>
+              <option>MBBS / MD</option><option>BDS</option><option>LLB / LLM</option>
+              <option>MBA</option><option>B.Ed / M.Ed</option><option>Nursing</option>
+              <option>CA / CS / ICWA</option><option>PhD</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Profession / Job</label><input type="text" name="profession" placeholder="e.g. Software Engineer, Teacher"></div>
+          <div class="field"><label>Annual Income</label>
+            <select name="incomeAnnual">
+              <option value="">Select</option>
+              <option>Below 2 Lakh</option><option>2-5 Lakh</option><option>5-10 Lakh</option>
+              <option>10-15 Lakh</option><option>15-25 Lakh</option><option>25-50 Lakh</option>
+              <option>50 Lakh+</option><option>Not Working</option><option>Business</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Family Background</legend>
+        <div class="form-grid">
+          <div class="field"><label>Father's Name</label><input type="text" name="fatherName"></div>
+          <div class="field"><label>Father's Occupation</label><input type="text" name="fatherOccupation" placeholder="e.g. Farmer, Businessman"></div>
+          <div class="field"><label>Mother's Name</label><input type="text" name="motherName"></div>
+          <div class="field"><label>Mother's Occupation</label><input type="text" name="motherOccupation" placeholder="e.g. Homemaker, Teacher"></div>
+          <div class="field"><label>Siblings</label><input type="text" name="siblings" placeholder="e.g. 1 Brother (Married), 1 Sister"></div>
+          <div class="field"><label>Family Type</label>
+            <select name="familyType"><option value="">Select</option><option>Joint</option><option>Nuclear</option></select>
+          </div>
+          <div class="field"><label>Family Status</label>
+            <select name="familyStatus"><option value="">Select</option><option>Middle Class</option><option>Upper Middle Class</option><option>Rich</option><option>Affluent</option></select>
+          </div>
+          <div class="field"><label>Family Based In</label><input type="text" name="familyCity" placeholder="City / Village name"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Contact Information</legend>
+        <div class="form-grid">
+          <div class="field"><label>Phone Number *</label><input type="tel" name="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number"></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="your@email.com"></div>
+          <div class="field"><label>WhatsApp Number</label><input type="tel" name="whatsapp" pattern="[0-9]{10}" placeholder="If different from phone"></div>
+        </div>
+        <div class="field full">
+          <label>Contact Privacy</label>
+          <select name="privacyLevel">
+            <option value="registered">Visible to registered members only</option>
+            <option value="hidden">Hidden — contact via platform only</option>
+            <option value="public">Visible to everyone</option>
+          </select>
+          <small class="privacy-note">You control who can see your phone number. Default: only registered members.</small>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Partner Preferences (Optional)</legend>
+        <div class="field full"><textarea name="partnerPref" rows="3" placeholder="Describe your ideal partner — age range, education, profession, location, community preferences..."></textarea></div>
+      </fieldset>
+
+      <fieldset class="form-section consent-section">
+        <legend>Consent &amp; Agreement</legend>
+        <label class="consent-check">
+          <input type="checkbox" name="consent" required>
+          <span>I voluntarily provide my information for matrimonial purposes. I confirm that the details are accurate and I consent to my profile being displayed to other registered members. I understand I can <strong>delete my profile at any time</strong> by contacting support.</span>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="btn-submit">Create My Profile — It's Free</button>
+      <div id="formMsg" class="form-msg"></div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">💍 Punjab Rishta</div>
+      <p>A consent-based matrimonial platform for Punjab families.<br>Your privacy is our priority. No data scraping. No hidden fees.</p>
+      <div class="footer-links">
+        <a href="/">Browse Profiles</a>
+        <a href="/register.html">Register Free</a>
+      </div>
+      <div class="footer-copy">Made with ❤️ in Punjab</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("regFormEl").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const data = Object.fromEntries(fd.entries());
+      data.consent = !!data.consent;
+      if (!data.whatsapp) data.whatsapp = data.phone;
+      const msg = document.getElementById("formMsg");
+      const btn = e.target.querySelector(".btn-submit");
+      btn.disabled = true; btn.textContent = "Creating profile...";
+      try {
+        const res = await fetch("/api/profiles", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) { const err = await res.json(); throw new Error(err.error); }
+        msg.textContent = "✅ Profile created successfully! Redirecting to browse...";
+        msg.className = "form-msg success";
+        setTimeout(() => window.location.href = "/", 2000);
+      } catch (err) {
+        msg.textContent = "Error: " + err.message;
+        msg.className = "form-msg error";
+        btn.disabled = false; btn.textContent = "Create My Profile — It's Free";
+      }
+    });
+
+    fetch("/api/stats").then(r=>r.json()).then(d => {
+      const el = document.getElementById("heroCount");
+      if (el && d.total) el.textContent = d.total + "+";
+    }).catch(()=>{});
+  </script>
+</body>
+</html>
