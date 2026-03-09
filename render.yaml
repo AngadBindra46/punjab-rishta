@@ -8,3 +8,5 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
+      - key: GOOGLE_CLIENT_ID
+        value: 806692116297-tvo0mmiire2auq4nsrbubmo1uuh1gekh.apps.googleusercontent.com
